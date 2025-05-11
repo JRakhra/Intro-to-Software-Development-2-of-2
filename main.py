@@ -44,3 +44,12 @@ def capture_packets(packet_count=10, output_file='packet_log.csv'):
         sock.close()
     except PermissionError:
         print("Permission denied: Please run the script as Administrator.")
+
+def display_data(file_path='packet_log.csv'):
+    if not os.path.exists(file_path):
+        print("No packet data found. Please capture packets first.")
+        return
+    
+    data = pd.read_csv(file_path)
+    print("\n--- Packet Data ---")
+    print(data)
