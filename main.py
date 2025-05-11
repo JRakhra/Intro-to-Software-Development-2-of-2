@@ -68,3 +68,32 @@ def visualize_data(file_path='packet_log.csv'):
     plt.xlabel('Source IP Address')
     plt.ylabel('Number of Packets')
     plt.show()
+
+def main():
+    while True:
+        print("\n--- Network Monitoring Tool ---")
+        print("1. Capture Packets")
+        print("2. Display Captured Data")
+        print("3. Visualize Packet Distribution")
+        print("4. Exit")
+        
+        choice = input("Enter your choice: ")
+        
+        if choice == '1':
+            try:
+                packet_count = int(input("Enter number of packets to capture: "))
+                capture_packets(packet_count)
+            except ValueError:
+                print("Invalid input. Please enter a number.")
+        elif choice == '2':
+            display_data()
+        elif choice == '3':
+            visualize_data()
+        elif choice == '4':
+            print("Exiting the tool. Goodbye!")
+            break
+        else:
+            print("Invalid choice. Please try again.")
+
+if __name__ == "__main__":
+    main()
