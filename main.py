@@ -53,3 +53,18 @@ def display_data(file_path='packet_log.csv'):
     data = pd.read_csv(file_path)
     print("\n--- Packet Data ---")
     print(data)
+
+def visualize_data(file_path='packet_log.csv'):
+    if not os.path.exists(file_path):
+        print("No packet data found. Please capture packets first.")
+        return
+    
+    data = pd.read_csv(file_path)
+    ip_counts = data['Source IP'].value_counts()
+
+    plt.figure(figsize=(10, 6))
+    ip_counts.plot(kind='bar')
+    plt.title('Packet Source IP Distribution')
+    plt.xlabel('Source IP Address')
+    plt.ylabel('Number of Packets')
+    plt.show()
