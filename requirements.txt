@@ -1,0 +1,4 @@
+sockets
+pandas
+matplotlib
+csv
